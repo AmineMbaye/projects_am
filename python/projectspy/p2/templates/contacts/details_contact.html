@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md m-auto">
+            <h4 class="text-center">{{ contact.prenom }} {{ contact.nom }}</h4>
+            <div class="card">
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            Telephone : {{ contact.telephone }}
+                        </li>
+                        <li class="list-group-item">
+                            Email : {{ contact.email|default_if_none:"non renseigné" }}
+                        </li>
+                        <li class="list-group-item">
+                            Date Saved : {{ contact.date_save }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Project Scoring</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link 
+      rel="stylesheet" 
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+      crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container mt-3">
+  
+ 
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs bg-light">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#acteur">Acteur</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#pc">Patron -- Contexte</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#Affichage">Afficher les données de la base</a>
+    </li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active"><br>
+      <!-- Start Description -->
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Projet Scoring</h1>
+          <p class="lead">
+            Ce projet nous permet de faire la représentation sur des données en graphe avec l'outil Neo4J. Le scoring d'un élément est utilisable par un patron. Le scoring détermine le taux de d'utilisation de cet élément (ce patron) dans un projet. Ce scoring est mise à jour après chaque utlisation.
+            <br>
+            <br>
+            Cela permettra de se baser sur le scoring des patrons par contexte pour la recommandation automatique.
+          </p>
+        </div>
+      </div>
+      <!-- End Description -->
+    </div>
+
+    <div id="acteur" class="container tab-pane"><br>
+      <h3>Acteur</h3>
+      <form method="POST" class="">
+        <legend></legend>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+          <label for="exampleFormControlInput1">Nom</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'acteur" name="nom_actor">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlSelect1">Prénom</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Prénom de l'acteur" name="prenom_actor">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlTextarea1">Identifiant</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Identifiant de l'acteur" name="id_actor">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer Acteur</button>
+      </form>
+      <!-- End Acteur -->
+    </div>
+    <div id="pc" class="container tab-pane fade"><br>
+      <!-- Start Pattern -- Contexte  -->
+      <h3>Pattern -- Contexte</h3>
+
+      <form method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlInput1">Score Pattern</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Score du patron" name="score">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlSelect1">Id Pattern</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Identifiant du patron" name="id_pattern">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="exampleFormControlSelect1">Nom Pattern</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom du patron" name="name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="exampleFormControlInput1">Description</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Description du contexte" name="describe">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="exampleFormControlSelect1">Disponibilité</label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Combien d'acteurs doivent être disponibles pour ce contexte" name="dispo">
+          </div>
+        </div>
+        <!-- {%csrf_token%} -->
+        <!-- <button type="submit" class="btn btn-primary">Enregistrer</button> -->
+        <input type="submit" class="btn btn-primary" value="Enregistrer">
+      </form>
+      <!-- End Pattern -- Contexte -->
+    </div>
+
+    <div id="Affichage" class="container tab-pane"><br>
+      <!-- Start Afficher Acteur -->
+      <div class="container">
+        <h3>Les acteurs</h3>
+        <table class="table table-red">
+          <thead class="thead-light">
+            <tr>
+              <th scope="col">Identifiant</th>
+              <th scope="col">Prénom (s)</th>
+              <th scope="col">NOM</th>
+            </tr>
+          </thead>
+          <tbody class="thead-dark">
+            <tr>
+              <th scope="row">mad</th>
+              <td>Abass</td>
+              <td>DIALLO</td>
+            </tr>
+            <tr>
+              <th scope="row">smaad</th>
+              <td>Sidy</td>
+              <td>DEME</td>
+            </tr>
+            <tr>
+              <th scope="row">mlc</th>
+              <td>Lakhassane</td>
+              <td>CISSE</td>
+            </tr>
+            <tr>
+              <th scope="row">mam</th>
+              <td>Amine</td>
+              <td>MBAYE</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End Afficher Acteur -->
+      <br><hr>
+      <!-- Start Afficher Patron et Contexte associé -->
+      <div class="container">
+        <h3>Les Patrons et leur Contexte Associés</h3>
+        <table class="table table-red">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Id du patron</th>
+              <th scope="col">Nom du patron</th>
+              <th scope="col">Description du contexte</th>
+              <th scope="col">Disponibilité des acteurs</th>
+              <th scope="col">Score du patron</th>
+            </tr>
+          </thead>
+          <tbody class="thead-light">
+            <tr>
+              <th scope="row">P1</th>
+              <td>Parallel</td>
+              <td>Tous les acteurs sont disponibles</td>
+              <td>All</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <th scope="row">P2</th>
+              <td>Parallel</td>
+              <td>Deux acteurs sont disponibles</td>
+              <td>2</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <th scope="row">P3</th>
+              <td>Sequential</td>
+              <td>Un seul acteur est disponible</td>
+              <td>1</td>
+              <td>60</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- End Afficher Patron et Contexte associé -->
+    </div>
+  </div>
+
+</body>
+</html>

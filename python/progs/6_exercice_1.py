@@ -1,0 +1,25 @@
+print("-------------Inscription------------")
+print("Entrez votre nom...")
+nom_1 = input()
+print("Entrez votre prenom...")
+prenom_1 = input()
+print("Entrez votre mot de passe...")
+mdp_1 = input()
+print("Confirmez votre nmot de passe...")
+cmdp_1 = input()
+if mdp_1 == cmdp_1:
+    print(" Inscription valide")
+    print()
+    print("-------------Connexion--------------")
+    print("Entrez votre nom...")
+    nom_2 = input()
+    print("Entrez votre prenom...")
+    prenom_2 = input()
+    print("Entrez votre mdp...")
+    mdp_2 = input()
+else:
+    print("Mot de passe incorrect !")
+if mdp_1 == mdp_2 and nom_1 == nom_2 and prenom_1 == prenom_2:
+        print("--- Bienvenue ", nom_1, prenom_1, " ---")
+else:
+        print("--- Verifiez vos informations ---")

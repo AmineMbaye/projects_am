@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Project</title>
+  
+  <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+  <!-- As a heading -->
+  <nav class="navbar navbar-light bg-dark">
+    <span class="navbar-brand mb-0 h1 active"><a class="btn btn-primary " href="index.html">Accueil</a></span>
+    <span class="navbar-brand mb-0 h1"><a class="btn btn-primary" href="acteur.html">Acteurs</a></span>
+    <span class="navbar-brand mb-0 h1"><a class="btn btn-primary" href="pcls.html">PCLS</a></span>
+    <!-- <span><a class="navbar-brand  h2" href="{%url 'other'%}">Other</a></span> -->
+  </nav>
+  <!-- End heading     -->
+  
+  <div class="container">
+
+    <!-- Start Description -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Projet Scoring</h1>
+        <p class="lead">
+          Ce projet nous permet de faire la représentation sur des données en graphe avec l'outil Neo4J. Le scoring d'un élément est utilisable par un patron. Le scoring détermine le taux de d'utilisation de cet élément (ce patron) dans un projet. Ce scoring est mise à jour après chaque utlisation.
+        </p>
+      </div>
+    </div>
+    <!-- End Description -->
+
+    <!-- {%block content%} -->
+    <!-- <h1>Acteur</h1> -->
+    <!-- Start Acteur -->
+    <form method="POST" class="">
+      <legend></legend>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+        <label for="exampleFormControlInput1">Nom</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom de l'acteur" name="nom_actor">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect1">Prenom</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Prenom de l'acteur" name="prenom_actor">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlTextarea1">Identifiant</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Identifiant de l'acteur" name="id_actor">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Enregistrer Acteur</button>
+      
+    </form>
+
+    <!-- End Acteur -->
+    <br>
+    <!-- Start Pattern -- Contexte  -->
+    <h1>Pattern</h1>
+
+    <form method="POST">
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlInput1">Score Pattern</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Score" name="score">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect1">Id Pattern</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Id du patron" name="id_pattern">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="exampleFormControlSelect1">Nom Pattern</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom du patron" name="name">
+        </div>
+      </div>
+    
+    <h1>Contexte</h1>
+    
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="exampleFormControlInput1">Description</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Nom" name="describe">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="exampleFormControlSelect1">Disponibilité</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Prenom" name="dispo">
+        </div>
+      </div>
+      <!-- {%csrf_token%} -->
+      <!-- <button type="submit" class="btn btn-primary">Enregistrer</button> -->
+      <input type="submit" class="btn btn-primary" value="Enregistrer">
+    </form>
+    <!-- End Pattern -- Contexte -->
+
+    <!-- {%endblock%} -->
+  </div>
+  <!-- End Jumbotron -->
+
+  <footer class="bd-footer p-3 p-md-5 mt-5 bg-light text-center text-sm-left">
+    <div class="container">
+      <p>&nbsp;</p>
+    </div>
+  </footer>
+
+  <script 
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script 
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>

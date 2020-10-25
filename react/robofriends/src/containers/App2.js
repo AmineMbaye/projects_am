@@ -1,0 +1,41 @@
+import React, { Component } from 'react';
+import CardList from '../components/CardList';
+import SearchBox from '../components/SearchBox';
+import { users } from '../users';
+import './Hello.css';
+
+class App2 extends Component {
+    constructor() {
+        super()
+        this.state = {
+            robots: users,
+            searchfield: ''
+        }
+    }
+
+    componentDidMount() {
+        fetch(users)
+            .then(response => response.json())
+            .then(users => this.setState({ robots: users }));
+    }
+
+    onSearchChange = (event) => {
+        this.setState({ searchfield: event.target.value })
+    }
+
+    render() {
+        const { robots, searchfield } = this.state;
+        const filteredRobots = robots.filter(robot => {
+            return robot.name.toLowerCase().includes(searchfield.toLowerCase())
+        })
+        return ( 
+            <div className = 'tc'>
+                <h1> RoboFriends </h1> 
+                <SearchBox searchChange = { this.onSearchChange }/>
+                <CardList robots = { filteredRobots }/>
+            </div>
+        );
+    }
+}
+
+export default App2;

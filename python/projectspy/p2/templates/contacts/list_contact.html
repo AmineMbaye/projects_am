@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md m-auto">
+            <div class="card">
+                <div class="card-body">
+                    {% if contacts %}
+                        <ul class="list-group list-group-flush">
+                            {% for contact in contacts %}
+                                <li class="list-group-item">
+                                    <a href="{% url 'details' contact.id %}">
+                                        <p>{{ contact.prenom }} {{ contact.nom }}</p>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                    <p>Pas de contact</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock content %}
